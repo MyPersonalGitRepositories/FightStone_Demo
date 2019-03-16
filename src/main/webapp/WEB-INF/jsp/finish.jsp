@@ -15,8 +15,8 @@
                 <h2>Login : ${b.player2.login} </h2>
                 <h2>Level : ${b.player2.lvl} </h2>
                 <h2>Class : ${b.player2.clas}</h2>
-                <h2>Stars : ${b.player2.stars}</h2>
-                <h2>Points : ${b.player2.points}</h2>
+                <h2>HP : ${b.hp2}</h2>
+                <h2>MANA : ${b.mana2}</h2>
             </div>
         </nav>
     </div>
@@ -25,19 +25,20 @@
     <h2>You earned ${b.battlePointsPlayer2} points</h2>
 </div>
 <hr/>
-<div align='center' class="topnav">
 <c:if test="${b.hp1<=0}">
     ${b.player2.login} WIN!
+    <form action="/fs/finish" method="post">
+        <input type="hidden" name="exit" value="true"/>
+        <input type="submit" value="Exit"/>
+    </form>
 </c:if>
-</div>
-<form action="/fs/main" method="get">
-    <input type="submit" value="Exit"/>
-</form>
-    <div align='center' class="topnav">
 <c:if test="${b.hp2<=0}">
     ${b.player1.login} WIN!
+    <form action="/fs/finish" method="get">
+        <input type="hidden" name="exit" value="true"/>
+        <input type="submit" value="Exit"/>
+    </form>
 </c:if>
-    </div>
 <hr/>
 <div>
     <h2>You earned ${b.battlePointsPlayer1} points</h2>
@@ -48,8 +49,8 @@
             <h2>Login : ${b.player1.login} </h2>
             <h2>Level : ${b.player1.lvl} </h2>
             <h2>Class : ${b.player1.clas}</h2>
-            <h2>Stars : ${b.player1.stars}</h2>
-            <h2>Points : ${b.player1.points}</h2>
+            <h2>HP : ${b.hp1}</h2>
+            <h2>MANA : ${b.mana1}</h2>
         </div>
     </nav>
 </div>
